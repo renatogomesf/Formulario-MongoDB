@@ -1,5 +1,5 @@
 export const theme = {
-    cor01: '#052710',
+    cor01: '#04180a',
     cor02: '#19CF52',
     cor03: '#118F39',
     cor04: '#094F20',
