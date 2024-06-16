@@ -59,19 +59,18 @@ export const Input = styled.input`
     border-radius: 10px;
 
     &:focus{
-        outline: 3px solid ${({theme})=>theme.cor04};
+        outline: 3px solid ${({theme})=>theme.cor02};
     }
 `
 
 export const Button = styled.button`
-    /* width: 190px; */
     padding: 10px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
-    background-color: ${({theme})=>theme.cor03};
+    background-color: ${({theme})=>theme.cor02};
     color: white;
 
     &:hover{
@@ -92,19 +91,14 @@ export const Cadastros = styled.ul`
 `
 
 export const Cadastro = styled.li`
-    /* background-color: ${({theme})=>theme.cor06}; */
     color: black;
-    /* border-radius: 5px; */
     list-style: none;
     display: flex;
     justify-content: end;
-    /* flex-wrap: wrap; */
-    /* gap: 10px; */
     width: 100%;
 
 
     @media (max-width: 700px) {
-        /* flex-direction: column; */
         flex-wrap: wrap;
     }
 `

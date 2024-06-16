@@ -66,7 +66,7 @@ export const Input = styled.input`
     background-color: rgba(128, 128, 128, 0.2);
 
     &:focus{
-        outline: 3px solid ${({theme})=>theme.cor04};
+        outline: 3px solid ${({theme})=>theme.cor02};
     }
 `
 

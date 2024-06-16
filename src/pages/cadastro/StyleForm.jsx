@@ -54,7 +54,7 @@ export const Input = styled.input`
     border-radius: 10px;
 
     &:focus{
-        outline: 3px solid ${({theme})=>theme.cor04};
+        outline: 3px solid ${({theme})=>theme.cor02};
     }
 `
 
@@ -70,7 +70,7 @@ export const Button = styled.button`
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
-    background-color: ${({theme})=>theme.cor03};
+    background-color: ${({theme})=>theme.cor02};
     color: white;
 
     &:hover{

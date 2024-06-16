@@ -1,8 +1,8 @@
 export const theme = {
-    cor01: '#172026',
-    cor02: '#5FCDD9',
-    cor03: '#027373',
-    cor04: '#04BFAD',
-    cor05: '#04BF9D',
+    cor01: '#052710',
+    cor02: '#19CF52',
+    cor03: '#118F39',
+    cor04: '#094F20',
+    cor05: '#08421A',
     cor06: '#ffffff'
 }
