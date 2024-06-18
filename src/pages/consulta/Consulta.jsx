@@ -85,19 +85,40 @@ export default function Consulta() {
             const cor = '#d0df00'
             handleFeedBack(cor)
 
-        }else if(nomeRef.current.value !== ''){
+        }
+        
+        
+        else if(nomeRef.current.value !== '' || sobrenomeRef.current.value !== '' || dataNascimentoRef.current.value !== ''){
 
-            const nome = {"nome":`${nomeRef.current.value}`}
-            // const nome = nomeRef.current.value
+            const consulta = {}
 
-            await axios.get('http://localhost:3000/formulario/consulta/', nome)
+            if(nomeRef.current.value !== ''){
+                let nome = nomeRef.current.value
+
+                consulta.nome = nome
+            }
+
+            if(sobrenomeRef.current.value !== ''){
+                let sobrenome = sobrenomeRef.current.value
+
+                consulta.sobrenome = sobrenome
+            }
+
+            if(dataNascimentoRef.current.value !== ''){
+                let dataNascimento = dataNascimentoRef.current.value
+
+                consulta.dataNascimento = dataNascimento
+            }
+           
+
+            await axios.post('http://localhost:3000/formulario/consulta', consulta)
             .then((response)=>{
 
                 if(response.data.length == 0){
 
                     setRetorno(
                         <p>
-                            ID "{nome}" não encontrado!
+                            Cadastro não encontrado!
                             <MdError className='alert'/>
                         </p>
                     )
@@ -109,7 +130,6 @@ export default function Consulta() {
 
                     const data = response.data
                     setData(data)
-                    console.log(data)
                 }
             })
             .catch(()=>{
@@ -126,86 +146,11 @@ export default function Consulta() {
 
             })
 
-        }else if(sobrenomeRef.current.value !== ''){
-
-            const nome = nomeRef.current.value
-
-            await axios.get('http://localhost:3000/cadastrosNome/' + nome)
-            .then((response)=>{
-
-                if(response.data.length == 0){
-
-                    setRetorno(
-                        <p>
-                            Nome "{nome}" não encontrado!
-                            <MdError className='alert'/>
-                        </p>
-                    )
-
-                    const cor = '#d0df00'
-                    handleFeedBack(cor)
-
-                }else if(response.data.length !== 0){
-
-                    const data = response.data
-                    setData(data)
-                }
-            })
-            .catch(()=>{
-                setRetorno(
-                    <p>
-                        Não foi possível realizar a consulta. <br/> Tente novamente mais tarde.
-                        <TbCircleLetterXFilled  className="erro"/>
-                    </p>
-                )
-
-                const cor = '#cc0000'
-                handleFeedBack(cor)
-            })
-
-        }else if(dataNascimentoRef.current.value !== ''){
-
-            const sobrenome = sobrenomeRef.current.value
-
-            await axios.get('http://localhost:3000/cadastrosSobrenome/' + sobrenome)
-            .then((response)=>{
-
-                if(response.data.length == 0){
-
-                    setRetorno(
-                        <p>
-                            Sobrenome "{sobrenome}" não encontrado!
-                            <MdError className='alert'/>
-                        </p>
-                    )
-
-                    const cor = '#d0df00'
-                    handleFeedBack(cor)
-
-                }else if(response.data.length !== 0){
-
-                    const data = response.data
-                    setData(data)
-                }
-            })
-            .catch(()=>{
-                setRetorno(
-                    <p>
-                        Não foi possível realizar a consulta. <br/> Tente novamente mais tarde.
-                        <TbCircleLetterXFilled  className="erro"/>
-                    </p>
-                )
-
-                const cor = '#cc0000'
-                handleFeedBack(cor)
-            })
+            nomeRef.current.value = ''
+            sobrenomeRef.current.value = ''
+            dataNascimentoRef.current.value = ''
         }
-
-        nomeRef.current.value = ''
-        sobrenomeRef.current.value = ''
-        dataNascimentoRef.current.value = ''
     }
-
 
 
     const handleDelete = async (itemId) => {
@@ -319,7 +264,6 @@ export default function Consulta() {
                             return (
                                 <Cadastro key={key}>
                                     <Dados>
-                                        <Dado>{item._id}</Dado>
                                         <Dado>{item.nome}</Dado>
                                         <Dado>{item.sobrenome}</Dado>
                                         <Dado>{item.dataNascimento}</Dado>
