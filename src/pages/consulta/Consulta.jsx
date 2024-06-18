@@ -16,9 +16,9 @@ import { MdError } from "react-icons/md";
 
 export default function Consulta() {
     
-    const idRef = useRef()
     const nomeRef = useRef()
     const sobrenomeRef = useRef()
+    const dataNascimentoRef = useRef()
 
     
     const [dadosUpdate, setDadosUpdate] =useState([])
@@ -52,7 +52,7 @@ export default function Consulta() {
 
     const handleTodosCadastros = async () => {
 
-        await axios.get('http://localhost:3000/cadastros')
+        await axios.get('http://localhost:3000/formulario/cadastros')
         .then((response)=>{
             const data = response.data
             setData(data)
@@ -73,7 +73,7 @@ export default function Consulta() {
 
     const handleFiltroCadastros = async () => {
 
-        if(idRef.current.value == '' && nomeRef.current.value == '' && sobrenomeRef.current.value == ''){
+        if(nomeRef.current.value == '' && sobrenomeRef.current.value == '' && dataNascimentoRef.current.value == ''){
 
             setRetorno(
                 <p>
@@ -85,18 +85,19 @@ export default function Consulta() {
             const cor = '#d0df00'
             handleFeedBack(cor)
 
-        }else if(idRef.current.value !== ''){
+        }else if(nomeRef.current.value !== ''){
 
-            const id = idRef.current.value
+            const nome = {"nome":`${nomeRef.current.value}`}
+            // const nome = nomeRef.current.value
 
-            await axios.get('http://localhost:3000/cadastrosId/' + id)
+            await axios.get('http://localhost:3000/formulario/consulta/', nome)
             .then((response)=>{
 
                 if(response.data.length == 0){
 
                     setRetorno(
                         <p>
-                            ID "{id}" não encontrado!
+                            ID "{nome}" não encontrado!
                             <MdError className='alert'/>
                         </p>
                     )
@@ -108,6 +109,7 @@ export default function Consulta() {
 
                     const data = response.data
                     setData(data)
+                    console.log(data)
                 }
             })
             .catch(()=>{
@@ -124,7 +126,7 @@ export default function Consulta() {
 
             })
 
-        }else if(nomeRef.current.value !== ''){
+        }else if(sobrenomeRef.current.value !== ''){
 
             const nome = nomeRef.current.value
 
@@ -161,7 +163,7 @@ export default function Consulta() {
                 handleFeedBack(cor)
             })
 
-        }else if(sobrenomeRef.current.value !== ''){
+        }else if(dataNascimentoRef.current.value !== ''){
 
             const sobrenome = sobrenomeRef.current.value
 
@@ -199,9 +201,9 @@ export default function Consulta() {
             })
         }
 
-        idRef.current.value = ''
         nomeRef.current.value = ''
         sobrenomeRef.current.value = ''
+        dataNascimentoRef.current.value = ''
     }
 
 
@@ -210,7 +212,7 @@ export default function Consulta() {
 
         const id = itemId
 
-        await axios.delete('http://localhost:3000/cadastros/' + id)
+        await axios.delete('http://localhost:3000/formulario/deletar/' + id)
         .then((response)=>{
 
             if(response.status == 200){
@@ -283,16 +285,16 @@ export default function Consulta() {
                     <Title>Consulta</Title>
                     <Wrapper>
                         <Div>
-                            <Label>ID (Número de cadastro)</Label>
-                            <Input ref={idRef} type="number" name="id" placeholder="Digite o ID"/>
-                        </Div>
-                        <Div>
                             <Label>Nome</Label>
                             <Input ref={nomeRef} type="text" name="name" placeholder="Digite o nome"/>
                         </Div>
                         <Div>
                             <Label>Sobrenome</Label>
                             <Input ref={sobrenomeRef} type="text" name="lastname" placeholder="Digite o sobrenome"/>
+                        </Div>
+                        <Div>
+                            <Label>Data de nascimento</Label>
+                            <Input ref={dataNascimentoRef} type="date" name="date"/>
                         </Div>
                     </Wrapper>
 
@@ -317,10 +319,10 @@ export default function Consulta() {
                             return (
                                 <Cadastro key={key}>
                                     <Dados>
-                                        <Dado className="id">{item.id}</Dado>
+                                        <Dado>{item._id}</Dado>
                                         <Dado>{item.nome}</Dado>
                                         <Dado>{item.sobrenome}</Dado>
-                                        <Dado>{item.data_nascimento}</Dado>
+                                        <Dado>{item.dataNascimento}</Dado>
                                         <Dado>{item.telefone}</Dado>
                                         <Dado>{item.email}</Dado>
                                     </Dados>
@@ -330,7 +332,7 @@ export default function Consulta() {
                                             <FaPen />   
                                         </button>
 
-                                        <button className="btnDelete" onClick={()=>handleDelete(item.id)} >
+                                        <button className="btnDelete" onClick={()=>handleDelete(item._id)} >
                                             <FaTrash />
                                         </button>
                                     </Funcao>

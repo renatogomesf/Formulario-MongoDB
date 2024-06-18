@@ -10,7 +10,7 @@ export default function Update(props) {
 
     const nomeRef = useRef()
     const sobrenomeRef = useRef()
-    const data_nascimentoRef = useRef()
+    const dataNascimentoRef = useRef()
     const telefoneRef = useRef()
     const emailRef = useRef()
 
@@ -25,7 +25,7 @@ export default function Update(props) {
     useEffect(()=>{
         nomeRef.current.value = props.dadosUpdate.nome
         sobrenomeRef.current.value = props.dadosUpdate.sobrenome
-        data_nascimentoRef.current.value = props.dadosUpdate.data_nascimento
+        dataNascimentoRef.current.value = props.dadosUpdate.dataNascimento
         telefoneRef.current.value = props.dadosUpdate.telefone
         emailRef.current.value = props.dadosUpdate.email
     })
@@ -33,17 +33,17 @@ export default function Update(props) {
 
     const handleSubmit = async () => {
 
-        const id = props.dadosUpdate.id
+        const id = props.dadosUpdate._id
         
         const data = {
             nome: (nomeRef.current.value),
             sobrenome: (sobrenomeRef.current.value),
-            data_nascimento: (data_nascimentoRef.current.value),
+            dataNascimento: (dataNascimentoRef.current.value),
             telefone: (telefoneRef.current.value),
             email: (emailRef.current.value),
         }
 
-        await axios.put('http://localhost:3000/cadastros/' + id, data)
+        await axios.patch('http://localhost:3000/formulario/atualizar/' + id, data)
         .then((response)=>{
 
             if(response.status == 200){
@@ -82,7 +82,7 @@ export default function Update(props) {
                     <Wrapper>
                         <Div>
                             <Label>Data de nascimento</Label>
-                            <Input ref={data_nascimentoRef} type="date" name="date" required/>
+                            <Input ref={dataNascimentoRef} type="date" name="date" required/>
                         </Div>
                         <Div>
                             <Label>Telefone</Label>

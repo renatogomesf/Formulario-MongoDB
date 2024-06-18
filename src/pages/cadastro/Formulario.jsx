@@ -41,13 +41,13 @@ export default function Formulario() {
 
     const nomeRef = useRef()
     const sobrenomeRef = useRef()
-    const data_nascimentoRef = useRef()
+    const dataNascimentoRef = useRef()
     const telefoneRef = useRef()
     const emailRef = useRef()
 
     const handleSubmit = async () => {
 
-        if(nomeRef.current.value=='' || sobrenomeRef.current.value=='' || data_nascimentoRef.current.value=='' || telefoneRef.current.value=='' || emailRef.current.value==''){
+        if(nomeRef.current.value=='' || sobrenomeRef.current.value=='' || dataNascimentoRef.current.value=='' || telefoneRef.current.value=='' || emailRef.current.value==''){
 
 
         }else{
@@ -56,12 +56,12 @@ export default function Formulario() {
             const data = {
                 nome: (nomeRef.current.value),
                 sobrenome: (sobrenomeRef.current.value),
-                data_nascimento: (data_nascimentoRef.current.value),
+                dataNascimento: (dataNascimentoRef.current.value),
                 telefone: (telefoneRef.current.value),
                 email: (emailRef.current.value)
             }
        
-            await axios.post('http://localhost:3000/cadastros', data)
+            await axios.post('http://localhost:3000/formulario/cadastrar', data)
             .then((response)=>{
                 if(response.status == 201){
 
@@ -79,7 +79,7 @@ export default function Formulario() {
     
                     nomeRef.current.value = ''
                     sobrenomeRef.current.value = ''
-                    data_nascimentoRef.current.value = ''
+                    dataNascimentoRef.current.value = ''
                     telefoneRef.current.value = ''
                     emailRef.current.value = ''
     
@@ -123,7 +123,7 @@ export default function Formulario() {
                     <Wrapper>
                         <Div>
                             <Label>Data de nascimento</Label>
-                            <Input ref={data_nascimentoRef} type="date" name="date" required/>
+                            <Input ref={dataNascimentoRef} type="date" name="date" required/>
                         </Div>
                         <Div>
                             <Label>Telefone</Label>
