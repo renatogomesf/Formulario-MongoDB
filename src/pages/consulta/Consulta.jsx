@@ -52,7 +52,7 @@ export default function Consulta() {
 
     const handleTodosCadastros = async () => {
 
-        await axios.get('http://localhost:3000/formulario/cadastros')
+        await axios.get('https://api-formulario-mongodb.onrender.com/formulario/cadastros')
         .then((response)=>{
             const data = response.data
             setData(data)
@@ -111,7 +111,7 @@ export default function Consulta() {
             }
            
 
-            await axios.post('http://localhost:3000/formulario/consulta', consulta)
+            await axios.post('https://api-formulario-mongodb.onrender.com/formulario/consulta', consulta)
             .then((response)=>{
 
                 if(response.data.length == 0){
@@ -157,7 +157,7 @@ export default function Consulta() {
 
         const id = itemId
 
-        await axios.delete('http://localhost:3000/formulario/deletar/' + id)
+        await axios.delete('https://api-formulario-mongodb.onrender.com/formulario/deletar/' + id)
         .then((response)=>{
 
             if(response.status == 200){

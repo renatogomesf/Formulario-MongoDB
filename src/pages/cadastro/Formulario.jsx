@@ -61,7 +61,7 @@ export default function Formulario() {
                 email: (emailRef.current.value)
             }
        
-            await axios.post('http://localhost:3000/formulario/cadastrar', data)
+            await axios.post('https://api-formulario-mongodb.onrender.com/formulario/cadastrar', data)
             .then((response)=>{
                 if(response.status == 201){
 

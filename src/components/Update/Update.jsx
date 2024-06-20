@@ -43,7 +43,7 @@ export default function Update(props) {
             email: (emailRef.current.value),
         }
 
-        await axios.patch('http://localhost:3000/formulario/atualizar/' + id, data)
+        await axios.patch('https://api-formulario-mongodb.onrender.com/formulario/atualizar/' + id, data)
         .then((response)=>{
 
             if(response.status == 200){
