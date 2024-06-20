@@ -20,13 +20,19 @@ export const Wrapper = styled.div`
         color: red;
     }
 
+    p{
+        text-indent: 20px;
+        text-align: justify;
+    }
+
     a{
         display: inline-flex;
         align-items: center;
         gap: 5px;
         text-decoration: none;
-        color: black;
+        color: ${({theme})=>theme.cor02};
         transition: 0.4s;
+        text-indent: 0px;
 
         .link{
             width: 10px;
