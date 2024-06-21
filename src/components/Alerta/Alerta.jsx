@@ -10,42 +10,25 @@ export default function Alerta() {
 
     const handleAlertShow = ()=> {
         const alerta = document.querySelector(".alerta")
-
         alerta.style.display = 'flex'
     }
 
-    
     const handleAlertHidden = ()=> {
         const alerta = document.querySelector(".alerta")
-
         alerta.style.display = 'none'
     }
 
-    const handleTodosCadastros = async () => {
-
-        await axios.get('https://api-formulario-mongodb.onrender.com/formulario/ligar-servidor')
-        .then((response)=>{
-            console.log(response.data)
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
-    }
 
     useEffect(()=>{
-        setTimeout(()=>handleAlertShow(),500)
-
-        handleTodosCadastros()
-    })
+        setTimeout(()=>handleAlertShow(),200)
+    },[])
 
 
     return (
         <>
             <Wrapper className="alerta">
                 <h1>Importante!</h1>
-                {/* <p>
-                    Como a API utilizada nesse projeto foi hospedada no <strong><a href="https://render.com/" target="blank">render <FaExternalLinkAlt  className="link"/></a></strong> e utilizado o plano gratuito, caso não haja atividades de requisição ou resposta, o servidor é <strong>suspenso/desativado</strong>. Com isso, para <strong>reativar o servidor</strong>, é necessário alguma atividade de consumo de api e este formulário sempre faz uma requisição ao ser aberto. Após a requisição pode levar <strong>50 segundos ou mais</strong> para que o formulário esteja totalmente usável e se comunicando com o banco de dados. <strong>Agradeço a compreensão!</strong>
-                </p> */}
+
                 <p>
                     Como a API utilizada nesse projeto foi hospedada no <strong><a href="https://render.com/" target="blank">render <FaExternalLinkAlt  className="link"/></a></strong> e utilizado o plano gratuito, caso não haja atividades de requisição ou resposta, o servidor é <strong>suspenso/desativado</strong>.
                 </p>
@@ -55,7 +38,7 @@ export default function Alerta() {
                 </p>
 
                 <p>
-                    Após a requisição, pode levar <strong>50 segundos ou mais</strong> para que o formulário esteja totalmente usável e se comunicando com o banco de dados.
+                    Após a requisição, pode levar por volta de <strong>50 segundos ou mais</strong> para que o formulário esteja totalmente usável e se comunicando com o banco de dados.
                 </p>
 
                 <div>

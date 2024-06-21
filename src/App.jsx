@@ -2,7 +2,8 @@ import Header from "./components/Header/Header"
 import Formulario from "./pages/cadastro/Formulario"
 import Consulta from "./pages/consulta/Consulta"
 import Footer from "./components/Footer/Footer"
-import Alerta from './components/Alerta/Alerta';
+import Alerta from "./components/Alerta/Alerta"
+import Timer from "./components/Timer/Timer"
 
 import styled from "styled-components"
 
@@ -54,6 +55,7 @@ function App() {
       </div>
       <Span className="move"></Span>
       <Alerta></Alerta>
+      <Timer></Timer>
     </> 
   )
 }
