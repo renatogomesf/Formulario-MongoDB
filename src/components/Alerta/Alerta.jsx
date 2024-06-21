@@ -19,23 +19,8 @@ export default function Alerta() {
     }
 
 
-    const handleTodosCadastros = async () => {
-
-        await axios.get('https://api-formulario-mongodb.onrender.com/formulario/ligar-servidor')
-        .then((response)=>{
-            if(response.status == 200){
-                handleAlertHidden()
-            }
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
-    }
-
-
     useEffect(()=>{
         handleAlertShow()
-        handleTodosCadastros()
     },[])
 
 
@@ -60,7 +45,7 @@ export default function Alerta() {
                     <strong>Agradeço a compreensão!</strong>
                 </div>
 
-                <Button onClick={handleAlertHidden}>Entendido! Aguardarei.</Button>
+                <Button onClick={handleAlertHidden}>Entendido!</Button>
             </Wrapper>
         </>
     )
