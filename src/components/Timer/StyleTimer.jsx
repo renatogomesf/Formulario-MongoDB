@@ -21,10 +21,7 @@ export const Div = styled.div`
 
 
     div{
-        border: 1px solid black;
-        width: 101%;
         height: 12px;
-        border-radius: 6px;
     }
 
     span::before{
