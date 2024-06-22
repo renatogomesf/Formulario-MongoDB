@@ -264,11 +264,11 @@ export default function Consulta() {
                             return (
                                 <Cadastro key={key}>
                                     <Dados>
-                                        <Dado>{item.nome}</Dado>
-                                        <Dado>{item.sobrenome}</Dado>
-                                        <Dado>{item.dataNascimento}</Dado>
-                                        <Dado>{item.telefone}</Dado>
-                                        <Dado>{item.email}</Dado>
+                                        <Dado><span>Nome</span>{item.nome}</Dado>
+                                        <Dado><span>Sobrenome</span>{item.sobrenome}</Dado>
+                                        <Dado><span>Data nasci.</span>{item.dataNascimento}</Dado>
+                                        <Dado><span>Telefone</span>{item.telefone}</Dado>
+                                        <Dado><span>E-mail</span>{item.email}</Dado>
                                     </Dados>
 
                                     <Funcao>

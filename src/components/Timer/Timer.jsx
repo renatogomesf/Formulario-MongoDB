@@ -35,7 +35,7 @@ export default function Timer() {
             if(response.status == 200){
                 handleTimertHidden()
                 handleStatustShow()
-                setTimeout(handleStatustHidden,5000)
+                setTimeout(handleStatustHidden,4000)
             }
         })
         .catch((error)=>{

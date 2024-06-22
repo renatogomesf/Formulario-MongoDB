@@ -8,9 +8,12 @@ export const Wrapper = styled.div`
     gap: 20px;
     position: absolute;
     top: 10%;
-    left: calc(50% - 300px);
+    left: 50%;
+    transform: translateX(-50%);
     background-color: white;
     color: black;
+
+    width: 90%;
     max-width: 600px;
     padding: 20px;
     border-radius: 10px;
@@ -41,11 +44,6 @@ export const Wrapper = styled.div`
         &:hover{
             transform: translateY(-6px);
         }
-    }
-
-    @media (max-width: 649px) {
-        max-width: 300px;
-        left: calc(50% - 150px);
     }
 `
 

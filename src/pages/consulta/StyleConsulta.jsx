@@ -128,8 +128,19 @@ export const Dado = styled.span`
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border-radius: 5px;
     font-weight: 500;
+
+    span{
+        font-weight: bold;
+    }
+
+    @media (max-width: 450px) {
+        width: 100%;
+
+        &:nth-child(odd){
+            background-color: #ececec;
+        }
+    }
 `
 
 export const Funcao = styled.div`
