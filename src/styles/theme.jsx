@@ -1,3 +1,5 @@
+
+// TEMA DA APLICAÇÃO
 export const theme = {
     cor01: '#04180a',
     cor02: '#19CF52',

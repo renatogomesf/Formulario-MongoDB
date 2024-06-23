@@ -1,3 +1,5 @@
+
+// CRIÇÃO DOS ESTILOS GLOBAIS
 import { createGlobalStyle } from "styled-components";
 
 
