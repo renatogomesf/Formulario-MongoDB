@@ -25,7 +25,7 @@ export default function Formulario() {
     const [retorno,setRetorno] = useState()
 
     
-    // CONSELA A FUNÇÃO PADRÃO DE ENVIO DOS FORMULÁRIOS
+    // CANCELA A FUNÇÃO PADRÃO DE ENVIO DOS FORMULÁRIOS
     const handlePreventDefault = (event) => {
         event.preventDefault()
     }
@@ -129,6 +129,8 @@ export default function Formulario() {
         <>
             <Section>
                 <Form onSubmit={handlePreventDefault}>
+
+                    {/* ÁREA DE CADASTRO */}
                     <Title>Cadastro</Title>
                     <Wrapper>
                         <Div>

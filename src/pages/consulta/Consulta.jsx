@@ -222,6 +222,8 @@ export default function Consulta() {
         <>
             <Section>
                 <Article>
+
+                    {/* CAMPOS PARA CONSULTA DE CADASTRO */}
                     <Title>Consulta</Title>
                     <Wrapper>
                         <Div>
@@ -246,6 +248,8 @@ export default function Consulta() {
                         </Button>
                     </Wrapper>
                     <hr />
+
+                    {/* ÁREA DOS RESULTADOS DAS PESQUISAS */}
                     <Title>Resultado das pesquisas</Title>
 
                     {/* RECEBE OS CADASTROS DO BANCO DE DADOS E FAZ TODA A CRIAÇÃO E ORGANZAÇÃO NA TELA PRO USUÁRIO PODER VER, ATUALIZAR OU APAGAR */}

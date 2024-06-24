@@ -75,6 +75,8 @@ export default function Update(props) {
         <>
             <Section>
                 <Form>
+
+                    {/* ÁREA PARA ATUALIZAR CADASTRO */}
                     <Title>Atualizar</Title>
                     <Wrapper>
                         <Div>
